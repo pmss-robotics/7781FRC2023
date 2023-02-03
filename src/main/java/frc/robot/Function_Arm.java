@@ -39,7 +39,7 @@ public class Function_Arm {
     /*
      * Params
      * lift: Positive values move arm up, negative vice versa
-     * extend: Positive values bring the arm out, negatice vice versa  
+     * extend: Positive values bring the arm out, negatice vice versa   
      */
     public void grabPeriodic(double lift, double extend) {
         //Alyn Jul 13, changed parameters of drivePeriodic to fit Mecanum driveCartesian

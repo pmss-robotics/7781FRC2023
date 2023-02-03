@@ -89,12 +89,23 @@ public class Robot extends TimedRobot{
 		lift = Deadband(lift);
 		lift = sensitivity*lift;
 
+		boolean extandLeft = _gamepad.getLeftBumper();
+		boolean extendRight = _gamepad.getLeftBumper();
+		int extend = 0;
+		//TODO: Move to constants file
+		if(extandLeft){
+			extend = -1;
+		}else if(extendRight){
+			extend = 1;
+		}else{
+			extend = 0;
+		}
 
 	
 		// Use driveCartesian (y, x, z) [NOT X, Y, Z] to control robot movement
 		driveTrain.drivePeriodic(backforth,0,leftright); 
 		intake.grabPeriodic(grab);
-		arm.grabPeriodic(lift, lift); //change the 2nd lift to extension later
+		arm.grabPeriodic(lift, extend); //change the 2nd lift to extension later
 
 
     }

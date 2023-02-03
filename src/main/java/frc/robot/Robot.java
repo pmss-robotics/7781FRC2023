@@ -90,15 +90,15 @@ public class Robot extends TimedRobot{
 		lift = sensitivity*lift;
 
 		boolean extandLeft = _gamepad.getLeftBumper();
-		boolean extendRight = _gamepad.getLeftBumper();
+		boolean extendRight = _gamepad.getRightBumper();
 		int extend = 0;
 		//TODO: Move to constants file
-		if(extandLeft){
+		if((extendRight && extandLeft ) || !(extendRight || extandLeft)){
+			extend = 0;
+		}else if(extandLeft){
 			extend = -1;
 		}else if(extendRight){
 			extend = 1;
-		}else{
-			extend = 0;
 		}
 
 	
